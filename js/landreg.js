@@ -105,10 +105,10 @@
           $('#deed_status').html(status);
         });
 
-        deed.nextDeeds(function(err,data){
-          console.log("next deeds", err,data.toString());
+        deed.numNextDeeds(function(err,data){
+          console.log("number of next deeds", err,data.toString());
           var nextdeeds = data.toString();
-          $('#hash').html(deedhash);
+          $('#next_deed').html(nextdeeds);
         });
 
         /*
