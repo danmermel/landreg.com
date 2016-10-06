@@ -44,12 +44,14 @@
           var owner =data.toString();
           $('#owner').html(owner);
         });
-/*
-        draw.drawDate(function (err,data){
-          console.log("drawDate", err, data.toString());
-          var drawDate = new Date(parseInt(data.toString())*1000);
-          $('#drawDate').html(drawDate.toString());
+
+        draw.url_to_claim(function (err,data){
+          console.log("deed url", err, data.toString());
+          var deedurl = data.toString;
+          $('#url').html(deedurl);
         });
+
+        /*
         draw.getPot(function(err,data){
           console.log("pot", err,data.toString());
           var wei = parseInt(data);
