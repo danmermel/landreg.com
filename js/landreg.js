@@ -51,13 +51,13 @@
           $('#url').html(deedurl);
         });
 
-        /*
-        draw.getPot(function(err,data){
-          console.log("pot", err,data.toString());
-          var wei = parseInt(data);
-          var eth = web3.fromWei(wei, 'ether');
-          $('#total').html(eth);
+        deed.claim_hash(function(err,data){
+          console.log("hash", err,data.toString());
+          var deedhash = data.toString();
+          $('#hash').html(deedhash);
         });
+
+        /*
         draw.entryFee(function(err,data){
           console.log("entry fee", err, data.toString());
           var wei = parseInt(data);
