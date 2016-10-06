@@ -45,7 +45,7 @@
           $('#owner').html(owner);
         });
 
-        draw.url_to_claim(function (err,data){
+        deed.url_to_claim(function (err,data){
           console.log("deed url", err, data.toString());
           var deedurl = data.toString;
           $('#url').html(deedurl);
