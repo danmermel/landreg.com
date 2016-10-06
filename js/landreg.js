@@ -60,8 +60,20 @@
 
         deed.provisional_time(function(err,data){
           console.log("created_time", err, data.toString());
-          var created_date = new Date(parseInt(data.toString())*1000);
-          $('#provisional_time').html(created_date);
+          var created_time = new Date(parseInt(data.toString())*1000);
+          $('#provisional_time').html(created_time);
+        });
+
+        deed.live_time(function(err,data){
+          console.log("live_time", err, data.toString());
+          var live_time = new Date(parseInt(data.toString())*1000);
+          $('#live_time').html(live_time);
+        });
+
+        deed.dead_time(function(err,data){
+          console.log("dead_time", err, data.toString());
+          var dead_time = new Date(parseInt(data.toString())*1000);
+          $('#dead_time').html(dead_time);
         });
 
         /*
