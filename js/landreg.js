@@ -57,13 +57,14 @@
           $('#hash').html(deedhash);
         });
 
-        /*
-        draw.entryFee(function(err,data){
-          console.log("entry fee", err, data.toString());
-          var wei = parseInt(data);
-          var eth = web3.fromWei(wei,'ether');
-          $('#entryFee').html(eth);
+
+        deed.provisional_time(function(err,data){
+          console.log("created_time", err, data.toString());
+          var created_date = new Date(parseInt(data.toString())*1000);
+          $('#provisional_time').html(created_date);
         });
+
+        /*
         draw.drawn(function(err,data){
           console.log("drawn", err,data);
           var drawn = data;
