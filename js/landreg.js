@@ -105,6 +105,12 @@
           $('#deed_status').html(status);
         });
 
+        deed.nextDeeds(function(err,data){
+          console.log("next deeds", err,data.toString());
+          var nextdeeds = data.toString();
+          $('#hash').html(deedhash);
+        });
+
         /*
         draw.drawn(function(err,data){
           console.log("drawn", err,data);
