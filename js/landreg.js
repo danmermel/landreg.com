@@ -47,7 +47,7 @@
 
         deed.url_to_claim(function (err,data){
           console.log("deed url", err, data.toString());
-          var deedurl = data.toString;
+          var deedurl = data.toString();
           $('#url').html(deedurl);
         });
 
