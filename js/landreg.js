@@ -67,13 +67,21 @@
         deed.live_time(function(err,data){
           console.log("live_time", err, data.toString());
           var live_time = new Date(parseInt(data.toString())*1000);
-          $('#live_time').html(live_time);
+          if (live_time >0){
+            $('#live_time').html(live_time);
+          } else {
+            $('#live_time').html("null");
+          }
         });
 
         deed.dead_time(function(err,data){
           console.log("dead_time", err, data.toString());
           var dead_time = new Date(parseInt(data.toString())*1000);
-          $('#dead_time').html(dead_time);
+          if (dead_time > 0) {
+            $('#dead_time').html(dead_time);
+          } else {
+            $('#dead_time').html("null");
+          }
         });
 
         /*
