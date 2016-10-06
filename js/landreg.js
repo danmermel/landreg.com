@@ -84,6 +84,12 @@
           }
         });
 
+        deed.status(function(err,data){
+          console.log("hash", err,data.toString());
+          var status = data.toString();
+          $('#deed_status').html(status);
+        });
+
         /*
         draw.drawn(function(err,data){
           console.log("drawn", err,data);
