@@ -89,19 +89,19 @@
           var statuscode= data.toString();
           var status ="";
           switch(statuscode) {
-            case 0:
+            case "0":
               status="provisional";
               break;
-            case 1:
+            case "1":
               status = "live";
               break;
-            case 2:
+            case "2":
               status ="dead";
               break;
             default:
               status = "unknown"
           }
-          
+
           $('#deed_status').html(status);
         });
 
