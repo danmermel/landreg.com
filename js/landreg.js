@@ -109,8 +109,9 @@
 
         deed.numNextDeeds(function(err,data){
           console.log("number of next deeds", err,data.toString());
-          nextdeeds = data.toString();
-          $('#next_deed').html(nextdeeds);
+          var str_nextdeeds = data.toString();
+          $('#next_deed').html(str_nextdeeds);
+          nextdeeds = parseInt(str_nextdeeds);
         });
 
         for (var i =0; i<nextdeeds; i++){
