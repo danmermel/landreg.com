@@ -39,6 +39,8 @@
 
       var render_deed = function (deedid) {
         var deed = web3.eth.contract(deedAbi).at(deedid);
+        var nextdeeds = 0;
+
         deed.owner(function(err,data){
           console.log ("owner", err,data.toString());
           var owner =data.toString();
@@ -107,9 +109,15 @@
 
         deed.numNextDeeds(function(err,data){
           console.log("number of next deeds", err,data.toString());
-          var nextdeeds = data.toString();
+          nextdeeds = data.toString();
           $('#next_deed').html(nextdeeds);
         });
+
+        for (var i =0; i<nextdeeds; i++){
+        	deed.nextDeeds(i, function(err,data){
+        		console.log("next deed ",i, err, data.toString());
+        	});
+        }
 
         /*
         draw.drawn(function(err,data){
