@@ -117,6 +117,7 @@
            deed.nextDeeds(i, function(err,data){
              console.log("next deed ",i, err, data.toString());
              var html = '<a class="waves-effect waves-light btn" href="/?' + data.toString() +  '">Next Deed</a>';
+             console.log(html);
              $('#nav_next').append(html);
            });
           }
@@ -134,6 +135,7 @@
            deed.previousDeeds(i, function(err,data){
              console.log("previous deed ",i, err, data.toString());
              var html = '<a class="waves-effect waves-light btn" href="/?' + data.toString() +  '">Prev Deed</a>';
+             console.log(html);
              $('#nav_previous').append(html);
            });
           }
