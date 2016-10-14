@@ -16,6 +16,12 @@
     }
       
 
+   var transferSingle = function() {
+     console.log("transfer single");
+     return false;
+   }
+
+
       var init = function() {
         if (typeof web3 === 'undefined') {
           $('#livecontainer').hide();
