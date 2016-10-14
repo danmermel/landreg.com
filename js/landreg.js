@@ -116,6 +116,8 @@
           for (var i =0; i<nextdeeds; i++){
            deed.nextDeeds(i, function(err,data){
              console.log("next deed ",i, err, data.toString());
+             var html = '<a class="waves-effect waves-light btn" href="/?' + data.toString() +  '">Next Deed</a>';
+             $('#nav_next').append(html);
            });
           }
         });
@@ -127,9 +129,12 @@
           $('#previous_deed').html(str_previousdeeds);
           previousdeeds = parseInt(str_previousdeeds);
 
+
           for (var i =0; i<previousdeeds; i++){
            deed.previousDeeds(i, function(err,data){
              console.log("previous deed ",i, err, data.toString());
+             var html = '<a class="waves-effect waves-light btn" href="/?' + data.toString() +  '">Prev Deed</a>';
+             $('#nav_previous').append(html);
            });
           }
         });
@@ -207,5 +212,7 @@
 */
       }; 
 
-      $( document ).ready(init);
+      $( document ).ready(function() {
+        setTimeout(init, 1000);
+      });
 
