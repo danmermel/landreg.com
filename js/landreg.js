@@ -120,6 +120,20 @@
           }
         });
 
+
+        deed.numPreviousDeeds(function(err,data){
+          console.log("number of previous deeds", err,data.toString());
+          var str_previousdeeds = data.toString();
+          $('#previous_deed').html(str_previousdeeds);
+          previousdeeds = parseInt(str_previousdeeds);
+
+          for (var i =0; i<previousdeeds; i++){
+           deed.previousDeeds(i, function(err,data){
+             console.log("previous deed ",i, err, data.toString());
+           });
+          }
+        });
+
         /*
         draw.drawn(function(err,data){
           console.log("drawn", err,data);
