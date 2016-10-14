@@ -1,6 +1,8 @@
      // address of the contract on testnet
       var addr = '0x7f3648e05f01a97160be67783571daeb834c68c1';
-      
+      var landreg = null;
+      var deedid = null;
+      var owner = null;
       //address of contract on live net
       //var addr ='';
 
@@ -18,6 +20,17 @@
 
    var transferSingle = function() {
      console.log("transfer single");
+
+     var newowner = $('#ts_new_owner').val();
+     if (newowner.length == 0) {
+       Materialize.toast('New owner cannot be blank', 4000);
+       return false;
+     }
+
+     landreg.transferSingle(deedid, newowner, {from: owner, gas: 3000000}, function(err, data) {
+       console.log('transfer single callback', err, data);
+     });
+ 
      return false;
    }
 
@@ -30,9 +43,10 @@
         }
         
         landreg = web3.eth.contract(abi).at(addr);
-        var deedid = window.location.search.replace(/^\?/,'');
+        deedid = window.location.search.replace(/^\?/,'');
         if (deedid == "") {
           landreg.theRegister(0,function(err,data) {
+            deedid = data.toString();
             render_deed(data);
             console.log(data);
           });
@@ -49,7 +63,7 @@
 
         deed.owner(function(err,data){
           console.log ("owner", err,data.toString());
-          var owner =data.toString();
+          owner =data.toString();
           $('#owner').html(owner);
         });
 
