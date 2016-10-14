@@ -127,7 +127,7 @@
         deed.numPreviousDeeds(function(err,data){
           console.log("number of previous deeds", err,data.toString());
           var str_previousdeeds = data.toString();
-          $('#previous_deed').html(str_previousdeeds);
+          $('#previous-deed').html(str_previousdeeds);
           previousdeeds = parseInt(str_previousdeeds);
 
 
@@ -136,7 +136,7 @@
              console.log("previous deed ",i, err, data.toString());
              var html = '<a class="waves-effect waves-light btn" href="/?' + data.toString() +  '">Prev Deed</a>';
              console.log(html);
-             $('#nav_previous').append(html);
+             $('#nav-previous').append(html);
            });
           }
         });
