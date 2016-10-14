@@ -118,7 +118,7 @@
              console.log("next deed ",i, err, data.toString());
              var html = '<a class="waves-effect waves-light btn" href="/?' + data.toString() +  '">Next Deed</a>';
              console.log(html);
-             $('#nav_next').append(html);
+             $('#nav-next').append(html);
            });
           }
         });
@@ -127,7 +127,7 @@
         deed.numPreviousDeeds(function(err,data){
           console.log("number of previous deeds", err,data.toString());
           var str_previousdeeds = data.toString();
-          $('#previous-deed').html(str_previousdeeds);
+          $('#previous_deed').html(str_previousdeeds);
           previousdeeds = parseInt(str_previousdeeds);
 
 
