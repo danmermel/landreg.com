@@ -112,13 +112,13 @@
           var str_nextdeeds = data.toString();
           $('#next_deed').html(str_nextdeeds);
           nextdeeds = parseInt(str_nextdeeds);
-        });
 
-        for (var i =0; i<nextdeeds; i++){
-        	deed.nextDeeds(i, function(err,data){
-        		console.log("next deed ",i, err, data.toString());
-        	});
-        }
+          for (var i =0; i<nextdeeds; i++){
+           deed.nextDeeds(i, function(err,data){
+             console.log("next deed ",i, err, data.toString());
+           });
+          }
+        });
 
         /*
         draw.drawn(function(err,data){
