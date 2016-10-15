@@ -28,12 +28,40 @@
      }
 
      landreg.transferSingle(deedid, newowner, {from: owner, gas: 3000000}, function(err, data) {
+       if (err){
+         Materialize.toast('You cannot transfer this deed. It does not belong to you', 4000);
+         return false;
+       };
+
        console.log('transfer single callback', err, data);
      });
  
      return false;
    }
 
+   var split = function() {
+     console.log("Split");
+
+     var new_url1 = $('#sp_new_url1').val();
+     var new_url2 = $('#sp_new_url2').val();
+     var new_hash1 = $('#sp_new_hash1').val();
+     var new_hash2 = $('#sp_new_hash2').val();   
+
+     if (new_url1.length == 0 || new_url2.length == 0 || new_hash1.length == 0 || new_hash2.length == 0) {
+       Materialize.toast('Please ensure all values are entered', 4000);
+       return false;
+     }
+
+     landreg.split(deedid, new_url1, new_url2, new_hash1, new_hash2, {from: owner, gas: 3000000}, function(err, data) {
+       if (err){
+         Materialize.toast('You cannot split this deed. It does not belong to you', 4000);
+         return false;
+       };
+       console.log('Split callback', err, data);
+     });
+ 
+     return false;
+   }
 
       var init = function() {
         if (typeof web3 === 'undefined') {
