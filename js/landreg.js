@@ -63,6 +63,31 @@
      return false;
    }
 
+   var join = function() {
+     console.log("Join");
+     
+
+     var deed1 = $('#jo_deed1').val();
+     var deed2 = $('#jo_deed2').val();
+     var new_url = $('#jo_new_url').val();
+     var new_hash = $('#jo_new_hash').val();   
+
+     if (deed1.length == 0 || deed2.length == 0 || new_url.length == 0 || new_hash.length == 0) {
+       Materialize.toast('Please ensure all values are entered', 4000);
+       return false;
+     }
+
+     landreg.join(deed1, deed2,  new_url, new_hash, {from: owner, gas: 3000000}, function(err, data) {
+       if (err){
+         Materialize.toast('You cannot join these deeds. You must own both to do this', 4000);
+         return false;
+       };
+       console.log('Join callback', err, data);
+     });
+ 
+     return false;
+   }
+
       var init = function() {
         if (typeof web3 === 'undefined') {
           $('#livecontainer').hide();
@@ -88,6 +113,7 @@
       var render_deed = function (deedid) {
         var deed = web3.eth.contract(deedAbi).at(deedid);
         var nextdeeds = 0;
+        $("#jo_deed1").val(deedid);
 
         deed.owner(function(err,data){
           console.log ("owner", err,data.toString());

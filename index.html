@@ -58,7 +58,7 @@
           <div clas="col s12 m4 l3" id="nav-next">
           </div>
         </div>
-
+  <h3>Transfer Ownership</h3>
   <div class="row">
     <form class="col s12" onsubmit="return transferSingle()">
       <div class="row">
@@ -75,6 +75,7 @@
    </form>
   </div>
 
+  <h3>Split into two deeds</h3>
   <div class="row">
     <form class="col s12" onsubmit="return split()">
       <div class="row">
@@ -110,6 +111,41 @@
    </form>
   </div>
 
+  <h3>Join two deeds</h3>
+  <div class="row">
+    <form class="col s12" onsubmit="return join()">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Deed 1" id="jo_deed1" type="text" class="validate" readonly>
+          <label for="jo_deed1">Deed 1</label>
+        </div>
+      </div>
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="Deed 2" id="jo_deed2" type="text" class="validate">
+         <label for="jo_deed2">Deed 2</label>
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="New URL" id="jo_new_url" type="url" class="validate">
+         <label for="jo_new_url">New URL</label>
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="New Hash" id="jo_new_hash" type="text" class="validate">
+         <label for="jo_new_hash">New Hash</label>
+       </div>
+     </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="submit" >
+        </div>
+      </div>
+   </form>
+  </div>
 
  
 
