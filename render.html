@@ -51,15 +51,6 @@ d3.json("graph.json", function(error, graph) {
       .attr("r", 6)
       .style("fill", function(d) { return d.id; });
 
-  node = node
-    .data(graph.nodes)
-      .enter().append("a")
-      .attr("xlink:href", function(d){return "http://en.wikipedia.org/wiki/"+d.id})
-      .append("circle")
-      .attr("class", "node")
-      .attr("r", 6)
-      .style("fill", function(d) { return d.id; });
-
 });
 
 function ticked() {
