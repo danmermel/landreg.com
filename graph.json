@@ -1,6 +1,7 @@
 {
   "nodes": [
     {"id": "red"},
+    {"id": "red"},
     {"id": "orange"},
     {"id": "yellow"},
     {"id": "green"},
@@ -11,6 +12,7 @@
     {"source": "red", "target": "yellow"},
     {"source": "red", "target": "blue"},
     {"source": "green", "target": "orange"},
+    {"source": "orange", "target": "green"},
     {"source": "red", "target": "green"}
   ]
 }
