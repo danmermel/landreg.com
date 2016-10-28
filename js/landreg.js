@@ -49,7 +49,7 @@
        return false;
      }
 
-     landreg.createDeed(url, hash, {from: owner, gas: 3000000}, function(err, data) {
+     landreg.createDeed(url, hash, {from: web3.eth.accounts[0], gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('Cannot create deed', 4000);
          return false;
