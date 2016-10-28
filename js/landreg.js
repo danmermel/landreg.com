@@ -36,7 +36,7 @@
        Materialize.toast('URL cannot be blank', 4000);
        return false;
      }
-     if (url.length > 31) {
+     if (url.length > 32) {
        Materialize.toast('URL length cannot exceed 31 characters', 4000);
        return false;
      }
@@ -44,7 +44,7 @@
        Materialize.toast('Hash cannot be blank', 4000);
        return false;
      }
-     if (hash.length > 31) {
+     if (hash.length > 32) {
        Materialize.toast('Hash length cannot exceed 31 characters', 4000);
        return false;
      }
