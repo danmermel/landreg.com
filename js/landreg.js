@@ -15,8 +15,8 @@
       var lottereo = null;
       
       function reveal(){
-      $('#play').removeClass('hide');
-    }
+        $('#play').removeClass('hide');
+      }
       
     function hex_to_ascii(str1) {  
       var hex  = str1.toString();  
@@ -111,6 +111,7 @@
             deedid = data.toString();
             render_deed(data);
             console.log(data);
+            reveal();
           });
         }    //if
         else {
