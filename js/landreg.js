@@ -27,6 +27,41 @@
       return str;  
    };
 
+   var createDeed = function() {
+     console.log("create deed");
+
+     var url = $('#cd_url').val();
+     var hash = $('#cd_hash').val();
+     if (url.length == 0) {
+       Materialize.toast('URL cannot be blank', 4000);
+       return false;
+     }
+     if (url.length > 31) {
+       Materialize.toast('URL length cannot exceed 31 characters', 4000);
+       return false;
+     }
+     if (hash.length == 0) {
+       Materialize.toast('Hash cannot be blank', 4000);
+       return false;
+     }
+     if (hash.length > 31) {
+       Materialize.toast('Hash length cannot exceed 31 characters', 4000);
+       return false;
+     }
+
+     landreg.createDeed(url, hash, {from: owner, gas: 3000000}, function(err, data) {
+       if (err){
+         Materialize.toast('Cannot create deed', 4000);
+         return false;
+       };
+
+       console.log('createDeed callback', err, data);
+     });
+ 
+     return false;
+   }
+
+
    var transferSingle = function() {
      console.log("transfer single");
 
