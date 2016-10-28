@@ -18,6 +18,14 @@
       $('#play').removeClass('hide');
     }
       
+    function hex_to_ascii(str1) {  
+      var hex  = str1.toString();  
+      var str = '';  
+      for (var n = 0; n < hex.length; n += 2) {  
+          str += String.fromCharCode(parseInt(hex.substr(n, 2), 16));  
+      }  
+      return str;  
+   };
 
    var transferSingle = function() {
      console.log("transfer single");
@@ -124,13 +132,13 @@
 
         deed.url_to_claim(function (err,data){
           console.log("deed url", err, data.toString());
-          var deedurl = data.toString();
+          var deedurl = hex_to_ascii(data.toString());
           $('#url').html(deedurl);
         });
 
         deed.claim_hash(function(err,data){
           console.log("hash", err,data.toString());
-          var deedhash = data.toString();
+          var deedhash = hex_to_ascii(data.toString());
           $('#hash').html(deedhash);
         });
 
