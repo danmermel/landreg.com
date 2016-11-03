@@ -173,6 +173,7 @@
         deed.url_to_claim(function (err,data){
           console.log("deed url", err, data.toString());
           var deedurl = hex_to_ascii(data.toString());
+          console.log ("deed url =", deedurl);
           $('a#url').attr('href',deedurl);
         });
 
