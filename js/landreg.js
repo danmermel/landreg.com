@@ -174,7 +174,7 @@
           console.log("deed url", err, data.toString());
           var deedurl = hex_to_ascii(data.toString());
           console.log ("deed url =", deedurl);
-          $('a#url').attr('href',deedurl);
+          $('a#url').attr('href',deedurl.toString());
         });
 
         deed.claim_hash(function(err,data){
