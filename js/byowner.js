@@ -17,7 +17,7 @@
            owner = web3.eth.accounts[0];
          }
          reveal();
-         var url = 'https://landreg.cloudant.com/deeds/_design/deeds/_view/byowner?key=%22' + owner + '%22&reduce=false&include_docs=true';
+         var url = 'https://landreg.cloudant.com/deeds/_design/deeds/_view/byowner?startkey=[%22' + owner + '%22]&endkey=[%22' + owner +  'z%22]&reduce=false&include_docs=true';
          $.ajax({
            url: url,
            json: true
