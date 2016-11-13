@@ -168,6 +168,7 @@
           console.log ("owner", err,data.toString());
           owner =data.toString();
           $('#owner').html(owner);
+          $('a#ownerlink').attr('href', 'byowner.html?' + owner);
         });
 
         deed.url_to_claim(function (err,data){
