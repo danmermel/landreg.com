@@ -17,9 +17,9 @@
          $.ajax({
            url: url,
            json: true
-         }).on("complete", function(data) {
+         }).done(function(data) {
            console.log("success", data);
-         }).on("error", function(err) {
+         }).fail(function(err) {
            console.log("error", err);
          });
          
