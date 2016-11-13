@@ -20,7 +20,9 @@
          }).done(function(data) {
            var html = '';
            for(var i=0; i < data.rows; i++) {
-             html += '<div><a href="index.html?' + data.rows[i].doc.deedid + '">' + data.rows[i].doc.deedid + '</a></div>'; 
+             var deedid = data.rows[i].doc.deedid;
+             console.log('deed', deedid);
+             html += '<div><a href="index.html?' + deedid + '">' + deedid + '</a></div>'; 
            }
            $('#play').html(html);
            console.log("success", data);
