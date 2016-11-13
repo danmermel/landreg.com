@@ -12,12 +12,17 @@
         }
     */    
          var owner = web3.eth.accounts[0];
-
+         reveal();
          var url = 'https://landreg.cloudant.com/deeds/_design/deeds/_view/byowner?key=%22' + owner + '%22&reduce=false&include_docs=true';
          $.ajax({
            url: url,
            json: true
          }).done(function(data) {
+           var html = '';
+           for(var i=0; i < data.rows; i++) {
+             html += '<div><a href="index.html?' + data.rows[i].doc.deedid + '">' + data.rows[i].doc.deedid + '</a></div>'; 
+           }
+           $('#play').html(html);
            console.log("success", data);
          }).fail(function(err) {
            console.log("error", err);
