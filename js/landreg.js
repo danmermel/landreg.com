@@ -259,9 +259,11 @@
           for (var i =0; i<previousdeeds; i++){
            deed.previousDeeds(i, function(err,data){
              console.log("previous deed ",i, err, data.toString());
-             var html = '<a class="waves-effect waves-light btn" href="?' + data.toString() +  '">Prev Deed</a>';
-             console.log(html);
-             $('#nav-previous').append(html);
+             if (data.toString() != '0x0000000000000000000000000000000000000000'){
+               var html = '<a class="waves-effect waves-light btn" href="?' + data.toString() +  '">Prev Deed</a>';
+               console.log(html);
+               $('#nav-previous').append(html);
+             };
            });
           }
         });
