@@ -19,7 +19,7 @@
            json: true
          }).done(function(data) {
            var html = '';
-           for(var i=0; i < data.rows; i++) {
+           for(var i=0; i < data.rows.length; i++) {
              var deedid = data.rows[i].doc.deedid;
              console.log('deed', deedid);
              html += '<div><a href="index.html?' + deedid + '">' + deedid + '</a></div>'; 
