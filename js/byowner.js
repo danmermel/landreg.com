@@ -24,9 +24,9 @@
          }).done(function(data) {
            var html = '';
            for(var i=0; i < data.rows.length; i++) {
-             var deedid = data.rows[i].doc.deedid;
+             var deedid = data.rows[i].doc.deed.deedid;
              console.log('deed', deedid);
-             html += '<div><a href="index.html?' + deedid + '">' + deedid + '</a> - ' + data.rows[i].doc.status + '</div>'; 
+             html += '<div><a href="index.html?' + deedid + '">' + deedid + '</a> - ' + data.rows[i].doc.deed.status + '</div>'; 
            }
            $('#play').html(html);
            console.log("success", data);
