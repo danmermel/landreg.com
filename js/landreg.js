@@ -204,6 +204,14 @@
                   accessToken: 'pk.eyJ1IjoibGFuZHJlZyIsImEiOiJjaXZtZTlwOWUwMDlnMnpwa2N6ejJsOXI3In0.3MtsxSmK4UcNpqxgzDj8Yw'
                   }).addTo(mymap);
           }
+          var x1 = data.deed.bounding_box[1];
+          var x2 = data.deed.bounding_box[3];
+          var y1 = data.deed.bounding_box[0];
+          var y2 = data.deed.bounding_box[2];
+
+          var polygon = L.polygon([
+            [x1,y1] ,[x1,y2,], [x2,y2], [x2,y1]
+          ]).addTo(mymap);
  
         }).fail(function(err) {
           console.log("error", err);
