@@ -197,13 +197,12 @@
           });
           if (data.deed.valid_url) {    //render map!
              var mymap = L.map('mapid').setView([data.deed.latitude, data.deed.longitude], 13);
-             L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-                     {
-                      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-                      maxZoom: 17,
-                      minZoom: 9
-                      }).addTo(mymap);
-
+             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                  maxZoom: 18,
+                  id: 'landreg',
+                  accessToken: 'pk.eyJ1IjoibGFuZHJlZyIsImEiOiJjaXZtZTlwOWUwMDlnMnpwa2N6ejJsOXI3In0.3MtsxSmK4UcNpqxgzDj8Yw'
+                  }).addTo(mymap);
           }
  
         }).fail(function(err) {
