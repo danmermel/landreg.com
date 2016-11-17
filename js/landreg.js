@@ -159,6 +159,16 @@
          setTimeout(drawD3, 10000);
       }
 
+      var render_time = function (time){
+        if (time ==0){
+          return '';
+        }
+        var d = new Date(time*1000);
+        return d.toString();
+        
+
+      }
+
       var render_deed = function (deedid) {
         var url = 'https://landreg.cloudant.com/deeds/' + deedid.replace(/^0x/,'');
         $.ajax({
@@ -167,115 +177,29 @@
         }).done(function(data) {
           $('#owner').html(data.deed.owner);
           $('a#ownerlink').attr('href', 'byowner.html?' + data.deed.owner);
-             
+          $('a#url').attr('href',data.deed.url_to_claim);
+          $('#hash').html(data.deed.claim_hash);
+          $('#provisional_time').html(render_time(data.deed.provisional_time));
+          $('#live_time').html(render_time(data.deed.live_time));
+          $('#dead_time').html(render_time(data.deed.dead_time));
+          var statuscode= data.deed.status;
+          var status_strings =["provisional","live","dead"];
+          $('#deed_status').html(status_strings[statuscode]);
+          $('#next_deed').html(data.deed.numNextDeeds);
+          data.deed.nextDeeds.forEach (function (nd) {
+            var html = '<a class="waves-effect waves-light btn" href="?' + nd +  '">Next Deed</a>';
+            $('#nav-next').append(html);
+          });
+          $('#previous_deed').html(data.deed.numPreviousDeeds);
+          data.deed.previousDeeds.forEach (function (pd) {
+            var html = '<a class="waves-effect waves-light btn" href="?' + pd +  '">Prev Deed</a>';
+            $('#nav-previous').append(html);
+          });
  
         }).fail(function(err) {
           console.log("error", err);
         });
-
-
-
-        var deed = web3.eth.contract(deedAbi).at(deedid);
-        var nextdeeds = 0;
         $("#jo_deed1").val(deedid);
-
-        deed.url_to_claim(function (err,data){
-          console.log("deed url", err, data.toString());
-          var deedurl = hex_to_ascii(data.toString());
-          console.log ("deed url =", deedurl);
-          $('a#url').attr('href',deedurl.toString());
-        });
-
-        deed.claim_hash(function(err,data){
-          console.log("hash", err,data.toString());
-          var deedhash = hex_to_ascii(data.toString());
-          $('#hash').html(deedhash);
-        });
-
-
-        deed.provisional_time(function(err,data){
-          console.log("created_time", err, data.toString());
-          var created_time = new Date(parseInt(data.toString())*1000);
-          $('#provisional_time').html(created_time);
-        });
-
-        deed.live_time(function(err,data){
-          console.log("live_time", err, data.toString());
-          var live_time = new Date(parseInt(data.toString())*1000);
-          if (live_time >0){
-            $('#live_time').html(live_time);
-          } else {
-            $('#live_time').html("null");
-          }
-        });
-
-        deed.dead_time(function(err,data){
-          console.log("dead_time", err, data.toString());
-          var dead_time = new Date(parseInt(data.toString())*1000);
-          if (dead_time > 0) {
-            $('#dead_time').html(dead_time);
-          } else {
-            $('#dead_time').html("null");
-          }
-        });
-
-        deed.status(function(err,data){
-          console.log("status", err,data.toString());
-          var statuscode= data.toString();
-          var status ="";
-          switch(statuscode) {
-            case "0":
-              status="provisional";
-              break;
-            case "1":
-              status = "live";
-              break;
-            case "2":
-              status ="dead";
-              break;
-            default:
-              status = "unknown"
-          }
-
-          $('#deed_status').html(status);
-        });
-
-        deed.numNextDeeds(function(err,data){
-          console.log("number of next deeds", err,data.toString());
-          var str_nextdeeds = data.toString();
-          $('#next_deed').html(str_nextdeeds);
-          nextdeeds = parseInt(str_nextdeeds);
-
-          for (var i =0; i<nextdeeds; i++){
-           deed.nextDeeds(i, function(err,data){
-             console.log("next deed ",i, err, data.toString());
-             var html = '<a class="waves-effect waves-light btn" href="?' + data.toString() +  '">Next Deed</a>';
-             console.log(html);
-             $('#nav-next').append(html);
-           });
-          }
-        });
-
-
-        deed.numPreviousDeeds(function(err,data){
-          console.log("number of previous deeds", err,data.toString());
-          var str_previousdeeds = data.toString();
-          $('#previous_deed').html(str_previousdeeds);
-          previousdeeds = parseInt(str_previousdeeds);
-
-
-          for (var i =0; i<previousdeeds; i++){
-           deed.previousDeeds(i, function(err,data){
-             console.log("previous deed ",i, err, data.toString());
-             if (data.toString() != '0x0000000000000000000000000000000000000000'){
-               var html = '<a class="waves-effect waves-light btn" href="?' + data.toString() +  '">Prev Deed</a>';
-               console.log(html);
-               $('#nav-previous').append(html);
-             };
-           });
-          }
-        });
-
       }; 
 
 var graph = {
