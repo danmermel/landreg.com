@@ -195,6 +195,16 @@
             var html = '<a class="waves-effect waves-light btn" href="?' + pd +  '">Prev Deed</a>';
             $('#nav-previous').append(html);
           });
+          if (data.deed.valid_url) {    //render map!
+             var mymap = L.map('mapid').setView([data.deed.latitude, data.deed.longitude], 13);
+             L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+                     {
+                      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+                      maxZoom: 17,
+                      minZoom: 9
+                      }).addTo(map);
+
+          }
  
         }).fail(function(err) {
           console.log("error", err);
