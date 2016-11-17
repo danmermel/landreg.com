@@ -160,16 +160,24 @@
       }
 
       var render_deed = function (deedid) {
+        var url = 'https://landreg.cloudant.com/deeds/' + deedid.replace(/^0x/,'');
+        $.ajax({
+          url: url,
+          json: true
+        }).done(function(data) {
+          $('#owner').html(data.deed.owner);
+          $('a#ownerlink').attr('href', 'byowner.html?' + data.deed.owner);
+             
+ 
+        }).fail(function(err) {
+          console.log("error", err);
+        });
+
+
+
         var deed = web3.eth.contract(deedAbi).at(deedid);
         var nextdeeds = 0;
         $("#jo_deed1").val(deedid);
-
-        deed.owner(function(err,data){
-          console.log ("owner", err,data.toString());
-          owner =data.toString();
-          $('#owner').html(owner);
-          $('a#ownerlink').attr('href', 'byowner.html?' + owner);
-        });
 
         deed.url_to_claim(function (err,data){
           console.log("deed url", err, data.toString());
