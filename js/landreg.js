@@ -214,7 +214,7 @@
           ]).addTo(mymap);
 */
           L.geoJSON(data).bindPopup(function (layer) {
-            return layer.feature.properties.description;
+            return layer.feature.properties.NOMBRE_DPT;
           }).addTo(mymap);
 
           mymap.fitBounds([ [x1,y1], [x2,y2] ]); 
