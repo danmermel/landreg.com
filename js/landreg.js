@@ -196,18 +196,19 @@
             $('#nav-previous').append(html);
           });
           if (data.deed.valid_url) {    //render map!
-             var mymap = L.map('mapid').setView([data.deed.latitude, data.deed.longitude], 13);
-             L.tileLayer(
-              //     'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}',
-                 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', 
-                  {
-                  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                  maxZoom: 18,
-                  id: 'statellite-streets-v10',
-                  accessToken: 'pk.eyJ1IjoibGFuZHJlZyIsImEiOiJjaXZtZTlwOWUwMDlnMnpwa2N6ejJsOXI3In0.3MtsxSmK4UcNpqxgzDj8Yw'
-                  }).addTo(mymap);
+              var map;
+              map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: {lat: data.deed.latitude, lng: data.deed.longitude}
+              });
+
+        // NOTE: This uses cross-domain XHR, and may not work on older browsers.
+      //  map.data.loadGeoJson(
+      //      'https://storage.googleapis.com/mapsdevsite/json/google.json');
+      //         }
+
           }
-          var x1 = data.deed.bounding_box[1];
+        /*  var x1 = data.deed.bounding_box[1];
           var x2 = data.deed.bounding_box[3];
           var y1 = data.deed.bounding_box[0];
           var y2 = data.deed.bounding_box[2];
@@ -215,12 +216,7 @@
           var polygon = L.polygon([
             [x1,y1] ,[x1,y2,], [x2,y2], [x2,y1]
           ]).addTo(mymap);
-
-       /*   L.geoJSON(data).bindPopup(function (layer) {
-            return layer.feature.properties.NOMBRE_DPT;
-          }).addTo(mymap);
 */
-          mymap.fitBounds([ [x1,y1], [x2,y2] ]); 
 
           
 

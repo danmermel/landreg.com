@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 <style>
 .node {
   stroke: #000;
@@ -19,7 +18,6 @@
   stroke: #999;
   stroke-width: 1.5px;
 }
-#mapid { height: 180px; }
 </style>
   <script src="//d3js.org/d3.v4.min.js"></script>
 </head>
@@ -60,7 +58,7 @@
             </div>
           </div>
           <div class="col s6 m6 l6">
-            <div id="mapid"></div>
+            <div id="map" style="width:500px; height:500px"></div>
             <svg width="500" height="500"></svg>
           </div>
         </div>
@@ -203,7 +201,7 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV0jtHjJy_zoRARzCBVFD6IRg6O7nN7JM"></script>
   <script src="js/init.js"></script>
   <script src="js/landreg.js"></script>
   </body>
