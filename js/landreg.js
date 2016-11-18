@@ -197,7 +197,10 @@
           });
           if (data.deed.valid_url) {    //render map!
              var mymap = L.map('mapid').setView([data.deed.latitude, data.deed.longitude], 13);
-             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+             L.tileLayer(
+                   'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}',
+              //     'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', 
+                  {
                   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
                   maxZoom: 18,
                   id: 'statellite-streets-v10',
