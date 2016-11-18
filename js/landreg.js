@@ -213,7 +213,7 @@
             [x1,y1] ,[x1,y2,], [x2,y2], [x2,y1]
           ]).addTo(mymap);
 
-          mymap.fitBounds(polygon); 
+          mymap.fitBounds([ [x1,y1], [x2,y2] ]); 
 
         }).fail(function(err) {
           console.log("error", err);
