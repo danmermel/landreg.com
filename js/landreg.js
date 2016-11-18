@@ -209,10 +209,10 @@
           var y1 = data.deed.bounding_box[0];
           var y2 = data.deed.bounding_box[2];
 
-          var polygon = L.polygon([
+/*          var polygon = L.polygon([
             [x1,y1] ,[x1,y2,], [x2,y2], [x2,y1]
           ]).addTo(mymap);
-
+*/
           L.geoJSON(data).bindPopup(function (layer) {
             return layer.feature.properties.description;
           }).addTo(mymap);
