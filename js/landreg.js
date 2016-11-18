@@ -212,7 +212,9 @@
           var polygon = L.polygon([
             [x1,y1] ,[x1,y2,], [x2,y2], [x2,y1]
           ]).addTo(mymap);
- 
+
+          mymap.fitBounds(polygon); 
+
         }).fail(function(err) {
           console.log("error", err);
         });
