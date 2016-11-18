@@ -201,7 +201,7 @@
                 zoom: 4,
                 center: {lat: data.deed.latitude, lng: data.deed.longitude}
               });
-              map.addGeoJson(data);
+              map.data.addGeoJson(data);
 
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
       //  map.data.loadGeoJson(
