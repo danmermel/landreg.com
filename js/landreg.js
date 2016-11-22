@@ -202,7 +202,11 @@
                 center: {lat: data.deed.latitude, lng: data.deed.longitude}
               });
               map.data.addGeoJson(data);
-
+             var sw = new google.maps.LatLng(data.deed.bounding_box[1], data.deed.bounding_box[0]);
+             var ne = new google.maps.LatLng(data.deed.bounding_box[3], data.deed.bounding_box[2]);
+             var bounds = new google.maps.LatLngBounds(sw,ne);
+             map.fitBounds(bounds);
+      
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
       //  map.data.loadGeoJson(
       //      'https://storage.googleapis.com/mapsdevsite/json/google.json');
