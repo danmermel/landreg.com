@@ -196,6 +196,7 @@
           var status_strings =["provisional","live","dead"];
           $('#deed_status').html(status_strings[statuscode]);
           $('#next_deed').html(data.deed.numNextDeeds);
+          $('#deed_name').html(data.deed.deed_name);
           data.deed.nextDeeds.forEach (function (nd) {
             var html = '<a class="waves-effect waves-light btn" href="?' + nd +  '">Next Deed</a>';
             $('#nav-next').append(html);
