@@ -44,6 +44,7 @@
               <div class="card-content white-text">
                 <span class="card-title">Deed Information</span>
                 <div>
+                  <p>Deed Name: <span id = "deed_name"> </span></p>
                   <p>Deed owner: <a href="http://" id="ownerlink"><span id="owner" style="font-weight:bold">0x</span></a></p>
                   <p><a href="http://" id="url" target="_blank">Deed URL</a></p>
                   <p>Deed Hash: <span id ="hash">0</span></p>
@@ -73,6 +74,12 @@
   <h3>Create Deed</h3>
   <div class="row">
     <form class="col s12" onsubmit="return createDeed()">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Deed Name" id="cd_name" type="text" class="validate">
+          <label for="cd_name">Deed Name</label>
+        </div>
+      </div>
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="URL" id="cd_url" type="url" class="validate">
