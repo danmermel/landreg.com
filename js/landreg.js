@@ -124,15 +124,16 @@
 
      var deed1 = $('#jo_deed1').val();
      var deed2 = $('#jo_deed2').val();
+     var new_name = $('#jo_new_name').val();
      var new_url = $('#jo_new_url').val();
      var new_hash = $('#jo_new_hash').val();   
 
-     if (deed1.length == 0 || deed2.length == 0 || new_url.length == 0 || new_hash.length == 0) {
+     if (deed1.length == 0 || deed2.length == 0 || new_url.length == 0 || new_hash.length == 0|| new_name.length ==0 ) {
        Materialize.toast('Please ensure all values are entered', 4000);
        return false;
      }
 
-     landreg.join("0x"+deed1, "0x"+deed2,  new_url, new_hash, {from: owner, gas: 3000000}, function(err, data) {
+     landreg.join("0x"+deed1, "0x"+deed2,  new_url, new_hash, new_name, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot join these deeds. You must own both to do this', 4000);
          return false;
