@@ -107,7 +107,7 @@
        return false;
      }
 
-     landreg.split(deedid, new_url1, new_url2, new_hash1, new_hash2,new_name1, new_name2, {from: owner, gas: 1000000}, function(err, data) {
+     landreg.split(deedid, new_url1, new_url2, new_hash1, new_hash2,new_name1, new_name2, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot split this deed. It does not belong to you', 4000);
          return false;
