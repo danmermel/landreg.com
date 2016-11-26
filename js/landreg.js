@@ -81,7 +81,7 @@
        return false;
      }
 
-     landreg.transferSingle(deedid, newowner, {from: owner, gas: 3000000}, function(err, data) {
+     landreg.transferSingle("0x"+deedid, newowner, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot transfer this deed. It does not belong to you', 4000);
          return false;
@@ -107,7 +107,7 @@
        return false;
      }
      console.log(deedid, new_url1, new_url2, new_hash1, new_hash2,new_name1, new_name2);
-     landreg.split(deedid, new_url1, new_url2, new_hash1, new_hash2,new_name1, new_name2, {from: owner, gas: 3000000}, function(err, data) {
+     landreg.split("0x"+deedid, new_url1, new_url2, new_hash1, new_hash2,new_name1, new_name2, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot split this deed. It does not belong to you', 4000);
          return false;
@@ -132,7 +132,7 @@
        return false;
      }
 
-     landreg.join(deed1, deed2,  new_url, new_hash, {from: owner, gas: 3000000}, function(err, data) {
+     landreg.join("0x"+deed1, "0x"+deed2,  new_url, new_hash, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot join these deeds. You must own both to do this', 4000);
          return false;
