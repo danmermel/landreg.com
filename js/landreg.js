@@ -15,10 +15,6 @@
       
       var lottereo = null;
       
-      function reveal(){
-        $('#play').removeClass('hide');
-      }
-      
     function hex_to_ascii(str1) {  
       var hex  = str1.toString();  
       var str = '';  
@@ -159,16 +155,13 @@
             getDeed(deedid,0);
             render_deed(data);
             console.log(data);
-            reveal();
           });
         }    //if
         else {
-          reveal();
           render_deed(deedid);
           getDeed(deedid,0);
         };
 
-         setTimeout(drawD3, 10000);
       }
 
       var render_time = function (time){
@@ -321,6 +314,7 @@ var getDeed = function(deedid, depth) {
   });
 };
 
+/* 
 var drawD3 = function() {
 
 var svg = d3.select("svg"),
@@ -364,6 +358,7 @@ function ticked() {
 }
 
 }
+*/
 
       $( document ).ready(function() {
         setTimeout(init, 1000);
