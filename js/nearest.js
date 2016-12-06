@@ -10,12 +10,12 @@
           navigator.geolocation.getCurrentPosition(function(position) {
             console.log(position.coords.latitude, position.coords.longitude);
             // now frig to be in Colombia for now
-            position.coords.latitude = 4.870879806490355;
-            position.coords.longitude =-74.03478886932135;
-            var lat1 = position.coords.latitude - 0.1;
-            var lat2  = position.coords.latitude + 0.1;
-            var lon1 = position.coords.longitude  - 0.1;
-            var lon2  = position.coords.longitude + 0.1;
+            var latitude = 4.870879806490355;
+            var longitude =-74.03478886932135;
+            var lat1 = latitude - 0.1;
+            var lat2  =latitude + 0.1;
+            var lon1 = longitude  - 0.1;
+            var lon2  = longitude + 0.1;
 
             var query ='latitude:['+lat1+' TO '+ lat2 +'] AND status:1 AND longitude:[' + lon1 + ' TO '+ lon2 +']';
             query = encodeURIComponent(query);
