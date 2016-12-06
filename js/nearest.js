@@ -20,7 +20,36 @@
             var query ='latitude:['+lat1+' TO '+ lat2 +'] AND status:1 AND longitude:[' + lon1 + ' TO '+ lon2 +']';
             query = encodeURIComponent(query);
             var url = 'https://landreg.cloudant.com/deeds/_design/deeds/_search/nearest?q=' + query +'&include_docs=true';
-           console.log("query is ", url);  
+            console.log("query is ", url);  
+            $.ajax({
+              url: url,
+              json: true
+            }).done(function(data) {
+              /* var html = '';
+              for(var i=0; i < data.rows.length; i++) {
+               var deedid = data.rows[i].doc.deed.deedid;
+               console.log('deed', deedid);
+               html += '<div><a href="index.html?' + deedid + '">' + deedid + '</a> - ' + data.rows[i].doc.deed.status +'   ' + data.rows[i].doc.deed.deed_name + '</div>'; 
+              }
+              $('#play').html(html);*/
+              console.log("success", data);
+            }).fail(function(err) { 
+              console.log("error", err);
+            });
+
+
+
+/*                         var map;
+              map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: {lat: data.deed.latitude, lng: data.deed.longitude}
+              });
+              map.data.addGeoJson(data);
+             var sw = new google.maps.LatLng(data.deed.bounding_box[1], data.deed.bounding_box[0]);
+             var ne = new google.maps.LatLng(data.deed.bounding_box[3], data.deed.bounding_box[2]);
+             var bounds = new google.maps.LatLngBounds(sw,ne);
+             map.fitBounds(bounds);
+*/
           });
         } else {
             /* geolocation IS NOT available */
