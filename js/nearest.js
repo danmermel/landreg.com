@@ -3,27 +3,43 @@
         $('#play').removeClass('hide');
       }
       
-
-      var init = function() {
-        reveal();
+      var getCentre = function(callback) {
         var params = window.location.search.replace(/^\?/,'');
         if (params) {
           // latitude=123&longitude=567
           params = params.split('&');
+          var centre = {};
           params.forEach(function(p) {
             // latitude=123
             p = p.split('=');
             // ['latitude','123'];
             console.log(p);
+            centre[p[0]] =  parseFloat(p[1]);
           });
+          //  { latitude: 123, longitude:456}
+          console.log(centre);
+          callback(null, centre);
+        } else {
+          if ("geolocation" in navigator) {
+            /* geolocation is available */
+            navigator.geolocation.getCurrentPosition(function(position) {
+              console.log(position.coords.latitude, position.coords.longitude);
+              callback(null, { latitude: position.coords.latitude, longitude:  position.coords.longitude});
+            });
+          } else {
+            callback(null, { latitude:0, longitude:0});
+          }
         }
-        if ("geolocation" in navigator) {
-           /* geolocation is available */
-          navigator.geolocation.getCurrentPosition(function(position) {
-            console.log(position.coords.latitude, position.coords.longitude);
-            // now frig to be in Colombia for now
-            var latitude = 4.870879806490355;
-            var longitude =-74.03478886932135;
+
+      };
+ 
+
+      var init = function() {
+        reveal();
+        getCentre( function(err, centre) {
+
+            var latitude = centre.latitude; //4.870879806490355;
+            var longitude = centre.longitude; //-74.03478886932135;
             var lat1 = latitude - 0.1;
             var lat2  =latitude + 0.1;
             var lon1 = longitude  - 0.1;
@@ -66,10 +82,8 @@
              var bounds = new google.maps.LatLngBounds(sw,ne);
              map.fitBounds(bounds);
 */
-          });
-        } else {
-            /* geolocation IS NOT available */
-        }
+          
+        }); 
  
 
     /*    if (typeof web3 === 'undefined') {
