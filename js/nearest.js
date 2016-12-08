@@ -25,26 +25,22 @@
               url: url,
               json: true
             }).done(function(data) {
-              /* var html = '';
+              var map;
+              map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: {lat: latitude, lng: longitude}
+              });
               for(var i=0; i < data.rows.length; i++) {
-               var deedid = data.rows[i].doc.deed.deedid;
-               console.log('deed', deedid);
-               html += '<div><a href="index.html?' + deedid + '">' + deedid + '</a> - ' + data.rows[i].doc.deed.status +'   ' + data.rows[i].doc.deed.deed_name + '</div>'; 
+               var deed = data.rows[i].doc.deed;
+               map.data.addGeoJson(data.rows[i].doc);
               }
-              $('#play').html(html);*/
               console.log("success", data);
             }).fail(function(err) { 
               console.log("error", err);
             });
+/*
 
 
-
-/*                         var map;
-              map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: {lat: data.deed.latitude, lng: data.deed.longitude}
-              });
-              map.data.addGeoJson(data);
              var sw = new google.maps.LatLng(data.deed.bounding_box[1], data.deed.bounding_box[0]);
              var ne = new google.maps.LatLng(data.deed.bounding_box[3], data.deed.bounding_box[2]);
              var bounds = new google.maps.LatLngBounds(sw,ne);
