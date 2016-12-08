@@ -27,6 +27,7 @@
               json: true
             }).done(function(data) {
               var map;
+              var bounds = new google.maps.LatLngBounds();
               map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 4,
                 center: {lat: latitude, lng: longitude}
@@ -34,7 +35,14 @@
               for(var i=0; i < data.rows.length; i++) {
                 console.log("iterator is",i);
                 map.data.addGeoJson(data.rows[i].doc);
+                var deed = data.rows[i].doc.deed;
+                var sw = new google.maps.LatLng(deed.bounding_box[1], deed.bounding_box[0]);
+                var ne = new google.maps.LatLng(deed.bounding_box[3], deed.bounding_box[2]);
+                bounds.extend(sw);
+                bounds.extend(ne);
               }
+              map.fitBounds(bounds);
+              map.setCenter(bounds.getCenter());
               console.log("success", data);
             }).fail(function(err) { 
               console.log("error", err);
