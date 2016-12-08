@@ -37,7 +37,7 @@
       var init = function() {
         reveal();
         getCentre( function(err, centre) {
-
+            console.log('getCentre', err, centre);
             var latitude = centre.latitude; //4.870879806490355;
             var longitude = centre.longitude; //-74.03478886932135;
             var lat1 = latitude - 0.1;
