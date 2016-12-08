@@ -6,6 +6,17 @@
 
       var init = function() {
         reveal();
+        var params = window.location.search.replace(/^\?/,'');
+        if (params) {
+          // latitude=123&longitude=567
+          params = params.split('&');
+          params.forEach(function(p) {
+            // latitude=123
+            p = p.split('=');
+            // ['latitude','123'];
+            console.log(p);
+          });
+        }
         if ("geolocation" in navigator) {
            /* geolocation is available */
           navigator.geolocation.getCurrentPosition(function(position) {
