@@ -5,6 +5,7 @@
       
 
       var init = function() {
+        reveal();
         if ("geolocation" in navigator) {
            /* geolocation is available */
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -31,8 +32,8 @@
                 center: {lat: latitude, lng: longitude}
               });
               for(var i=0; i < data.rows.length; i++) {
-               var deed = data.rows[i].doc.deed;
-               map.data.addGeoJson(data.rows[i].doc);
+                console.log("iterator is",i);
+                map.data.addGeoJson(data.rows[i].doc);
               }
               console.log("success", data);
             }).fail(function(err) { 
