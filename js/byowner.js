@@ -26,9 +26,10 @@
            for(var i=0; i < data.rows.length; i++) {
              var deedid = data.rows[i].doc.deed.deedid;
              console.log('deed', deedid);
-             html += '<div><a href="index.html?' + deedid + '">' + deedid + '</a> - ' + data.rows[i].doc.deed.status +'   ' + data.rows[i].doc.deed.deed_name + '</div>'; 
+             var a = '<a href="bydeed.html?'+ deedid+ '">'+deedid+'</a>';
+             html += '<tr><td>' + data.rows[i].doc.deed.deed_name +'</td><td>' + a + '</td><td>' + data.rows[i].doc.deed.status +'</td></tr> \n'; 
            }
-           $('#play').html(html);
+           $('#tbody').html(html);
            console.log("success", data);
          }).fail(function(err) {
            console.log("error", err);
