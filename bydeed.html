@@ -22,31 +22,52 @@
       </ul>
     </div>
   </nav>
+  
+  <table>
 
-  <div id="play" class="container">
-    <div class="section">
-      <div id="livecontainer" class="container">
-        <div class="row">
-          <div class="col s12 m12 l12">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
-                <span class="card-title">Deed Information</span>
-                <div>
-                  <p>Deed Name: <span id = "deed_name"> </span></p>
-                  <p>Deed owner: <a href="http://" id="ownerlink"><span id="owner" style="font-weight:bold">0x</span></a></p>
-                  <p><a href="http://" id="url" target="_blank">Deed URL</a></p>
-                  <p>Deed Hash: <span id ="hash">0</span></p>
-                  <p>Deed created on <span id = "provisional_time"> </span></p>
-                  <p>Deed committed on <span id = "live_time"> </span></p>
-                  <p>Deed expired on <span id = "dead_time"> </span></p>
-                  <p>Deed status <span id = "deed_status"> </span></p>
-                  <p>Previous Deeds <span id = "previous_deed"> </span></p>
-                  <p>Next Deeds <span id = "next_deed"> </span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <tbody>
+      <tr>
+        <th>Deed Name</th>
+        <td id = "deed_name"> </td>
+      </tr>
+      <tr>
+        <th>Owner</th>
+        <td><a href="http://" id="ownerlink"><span id="owner" style="font-weight:bold">0x</span></a></td> 
+      </tr>
+      <tr>
+        <th>URL</th>
+        <td>><a href="http://" id="url" target="_blank">Click Here</a> </td> 
+      </tr>
+      <tr>
+        <th>Hash</th>
+        <td id = "hash"> </td> 
+      </tr>
+      <tr>
+        <th>Created on</th>
+        <td id = "provisional_time"> </td> 
+      </tr>
+      <tr>
+        <th>Committed on</th>
+        <td id = "live_time"> </td> 
+      </tr>
+      <tr>
+        <th>Expired on</th>
+        <td id = "deead_time"> </td> 
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td id = "deed_status"> </td> 
+      </tr>
+      <tr>
+        <th>Previous Deeds</th>
+        <td id = "previous_deed"> </td> 
+      </tr>
+      <tr>
+        <th>Next Deeds</th>
+        <td id = "next_deed"> </td>
+      </tr>
+    </tbody>
+  </table>
 
         <div class="row"> 
           <div class="col s12 m12 l12">
@@ -60,158 +81,6 @@
           <div clas="col s12 m4 l3" id="nav-next">
           </div>
         </div>
-
-  <h3>Create Deed</h3>
-  <div class="row">
-    <form class="col s12" onsubmit="return createDeed()">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Deed Name" id="cd_name" type="text" class="validate">
-          <label for="cd_name">Deed Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="URL" id="cd_url" type="url" class="validate">
-          <label for="cd_url">URL</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Hash" id="cd_hash" type="text" class="validate">
-          <label for="cd_hash">Hash</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input type="submit" >
-        </div>
-      </div>
-   </form>
-  </div>
-
-
-  <h3>Transfer Ownership</h3>
-  <div class="row">
-    <form class="col s12" onsubmit="return transferSingle()">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="New Owner's address" id="ts_new_owner" type="text" class="validate">
-          <label for="ts_new_owner">New Owner</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input type="submit" >
-        </div>
-      </div> 
-   </form>
-  </div>
-
-  <h3>Split into two deeds</h3>
-  <div class="row">
-    <form class="col s12" onsubmit="return split()">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="New Name 1" id="sp_new_name1" type="text" class="validate">
-          <label for="sp_new_name1">New Name 1</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="New URL 1" id="sp_new_url1" type="url" class="validate">
-          <label for="sp_new_url1">New URL 1</label>
-        </div>
-      </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="New Hash 1" id="sp_new_hash1" type="text" class="validate">
-         <label for="sp_new_hash1">New Hash 1</label>
-       </div>
-     </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="New Name 2" id="sp_new_name2" type="text" class="validate">
-         <label for="sp_new_name2">New Name 2</label>
-       </div>
-     </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="New URL 2" id="sp_new_url2" type="url" class="validate">
-         <label for="sp_new_url2">New URL 2</label>
-       </div>
-     </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="New Hash 2" id="sp_new_hash2" type="text" class="validate">
-         <label for="sp_new_hash2">New Hash 2</label>
-       </div>
-     </div>
-
-      <div class="row">
-        <div class="input-field col s6">
-          <input type="submit" >
-        </div>
-      </div>
-   </form>
-  </div>
-
-  <h3>Join two deeds</h3>
-  <div class="row">
-    <form class="col s12" onsubmit="return join()">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Deed 1" id="jo_deed1" type="text" class="validate" readonly>
-          <label for="jo_deed1">Deed 1</label>
-        </div>
-      </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="Deed 2" id="jo_deed2" type="text" class="validate">
-         <label for="jo_deed2">Deed 2</label>
-       </div>
-     </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="New Name" id="jo_new_name" type="text" class="validate">
-         <label for="jo_new_name">New Name</label>
-       </div>
-     </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="New URL" id="jo_new_url" type="url" class="validate">
-         <label for="jo_new_url">New URL</label>
-       </div>
-     </div>
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="New Hash" id="jo_new_hash" type="text" class="validate">
-         <label for="jo_new_hash">New Hash</label>
-       </div>
-     </div>
-
-      <div class="row">
-        <div class="input-field col s6">
-          <input type="submit" >
-        </div>
-      </div>
-   </form>
-  </div>
-
- 
-
-
-      </div>
-
-      <div id="deadcontainer" class="container hide">
-        <p>To use Landreg you need either:</p>
-        <ul>
-          <li><a href="https://github.com/ethereum/mist">The Mist Browser</a> or </li>
-          <li><a href="https://metamask.io/">The MetaMask plugin for Chrome</a></li>
-        </ul>
-      </div>
-    </div> 
-  </div>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
