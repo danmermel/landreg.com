@@ -27,7 +27,8 @@
              var deedid = data.rows[i].doc.deed.deedid;
              console.log('deed', deedid);
              var a = '<a href="bydeed.html?'+ deedid+ '">'+deedid+'</a>';
-             html += '<tr><td>' + data.rows[i].doc.deed.deed_name +'</td><td>' + a + '</td><td>' + data.rows[i].doc.deed.status +'</td></tr> \n'; 
+             var statuses = ["provisional","live","dead"];
+             html += '<tr><td>' + data.rows[i].doc.deed.deed_name +'</td><td>' + a + '</td><td>' + statuses[data.rows[i].doc.deed.status] +'</td></tr> \n'; 
            }
            $('#tbody').html(html);
            console.log("success", data);
