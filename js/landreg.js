@@ -192,12 +192,12 @@
           $('#next_deed').html(data.deed.numNextDeeds);
           $('#deed_name').html(data.deed.deed_name);
           data.deed.nextDeeds.forEach (function (nd) {
-            var html = '<a class="waves-effect waves-light btn" href="?' + nd +  '">Next Deed</a>';
+            var html = '<a class="waves-effect waves-light btn navigation" href="?' + nd +  '">Next Deed</a>';
             $('#nav-next').append(html);
           });
           $('#previous_deed').html(data.deed.numPreviousDeeds);
           data.deed.previousDeeds.forEach (function (pd) {
-            var html = '<a class="waves-effect waves-light btn" href="?' + pd +  '">Prev Deed</a>';
+            var html = '<a class="waves-effect waves-light btn navigation" href="?' + pd +  '">Prev Deed</a>';
             $('#nav-previous').append(html);
           });
           if (data.deed.valid_url) {    //render map!
