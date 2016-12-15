@@ -179,6 +179,8 @@
           url: url,
           json: true
         }).done(function(data) {
+          $('#deedidval').html(deedid);
+          $('a#deedid').attr('href', 'https://testnet.etherscan.io/address/' + deedid);  
           $('#owner').html(data.deed.owner);
           $('a#ownerlink').attr('href', 'byowner.html?' + data.deed.owner);
           $('a#url').attr('href',data.deed.url_to_claim);
