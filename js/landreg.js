@@ -1,40 +1,24 @@
  
 
-      var init = function() {
-        if (typeof web3 === 'undefined') {
-          $('#livecontainer').hide();
-          $('#deadcontainer').removeClass('hide');
-          return;
-        }
-        
-        landreg = web3.eth.contract(abi).at(addr);
-        deedid = window.location.search.replace(/^\?/,'');
-        if (deedid == "") {
-          landreg.theRegister(0,function(err,data) {
-            deedid = data.toString();
-            getDeed(deedid,0);
-            render_deed(data);
-            console.log(data);
-          });
-        }    //if
-        else {
-          render_deed(deedid);
-          getDeed(deedid,0);
-        };
+ var init = function() {
+   deedid = window.location.search.replace(/^\?/,'');
+   if (deedid == "") {
+     Materialize.toast("No deed id found", 4000);
+   }    //if
+   else {
+     render_deed(deedid);
+   };
+ }
 
-      }
+  var render_time = function (time){
+   if (time ==0){
+     return '';
+    }
+    var d = new Date(time*1000);
+    return d.toString();
+  }
 
-      var render_time = function (time){
-        if (time ==0){
-          return '';
-        }
-        var d = new Date(time*1000);
-        return d.toString();
-        
-
-      }
-
-      var render_deed = function (deedid) {
+  var render_deed = function (deedid) {
         var url = 'https://landreg.cloudant.com/deeds/' + deedid.replace(/^0x/,'');
         $.ajax({
           url: url,
@@ -76,23 +60,7 @@
              var bounds = new google.maps.LatLngBounds(sw,ne);
              map.fitBounds(bounds);
       
-        // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-      //  map.data.loadGeoJson(
-      //      'https://storage.googleapis.com/mapsdevsite/json/google.json');
-      //         }
-
           }
-        /*  var x1 = data.deed.bounding_box[1];
-          var x2 = data.deed.bounding_box[3];
-          var y1 = data.deed.bounding_box[0];
-          var y2 = data.deed.bounding_box[2];
-
-          var polygon = L.polygon([
-            [x1,y1] ,[x1,y2,], [x2,y2], [x2,y1]
-          ]).addTo(mymap);
-*/
-
-          
 
         }).fail(function(err) {
           console.log("error", err);
@@ -102,7 +70,7 @@
 
 
 
-      $( document ).ready(function() {
-        setTimeout(init, 1000);
-      });
+$( document ).ready(function() {
+  init();
+});
 
