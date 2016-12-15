@@ -182,6 +182,7 @@
           $('#owner').html(data.deed.owner);
           $('a#ownerlink').attr('href', 'byowner.html?' + data.deed.owner);
           $('a#url').attr('href',data.deed.url_to_claim);
+          $('#urlval').html(data.deed.url_to_claim);
           $('#hash').html(data.deed.claim_hash);
           $('#provisional_time').html(render_time(data.deed.provisional_time));
           $('#live_time').html(render_time(data.deed.live_time));
