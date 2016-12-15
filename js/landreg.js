@@ -31,6 +31,9 @@
           $('a#url').attr('href',data.deed.url_to_claim);
           $('#urlval').html(data.deed.url_to_claim);
           $('#hash').html(data.deed.claim_hash);
+          $('#longitude').html(data.deed.longitude);
+          $('#latitude').html(data.deed.latitude);
+          $('a#nearbyurl').attr('href','nearest.html?latitude=' + data.deed.latitude + '&longitude=' + data.deed.longitude);
           $('#provisional_time').html(render_time(data.deed.provisional_time));
           $('#live_time').html(render_time(data.deed.live_time));
           $('#dead_time').html(render_time(data.deed.dead_time));
