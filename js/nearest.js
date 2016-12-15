@@ -59,6 +59,7 @@
                 zoom: 4,
                 center: {lat: latitude, lng: longitude}
               });
+              var html ='';
               for(var i=0; i < data.rows.length; i++) {
                 console.log("iterator is",i);
                 map.data.addGeoJson(data.rows[i].doc);
@@ -67,9 +68,15 @@
                 var ne = new google.maps.LatLng(deed.bounding_box[3], deed.bounding_box[2]);
                 bounds.extend(sw);
                 bounds.extend(ne);
+               //now fill the table
+                var deedid = data.rows[i].doc.deed.deedid;
+                var a = '<a href="bydeed.html?'+ deedid+ '">'+deedid+'</a>';
+                html += '<tr><td>' + data.rows[i].doc.deed.deed_name +'</td><td>' + a + '</td></tr> \n'; 
+
               }
               map.fitBounds(bounds);
               map.setCenter(bounds.getCenter());
+              $('#tbody').html(html);
               console.log("success", data);
             }).fail(function(err) { 
               console.log("error", err);
