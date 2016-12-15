@@ -56,7 +56,7 @@
               var map;
               var bounds = new google.maps.LatLngBounds();
               map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
+                zoom: 16,
                 center: {lat: latitude, lng: longitude}
               });
               var html ='';
