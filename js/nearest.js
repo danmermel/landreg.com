@@ -74,8 +74,10 @@
                 html += '<tr><td>' + data.rows[i].doc.deed.deed_name +'</td><td>' + a + '</td></tr> \n'; 
 
               }
-              map.fitBounds(bounds);
-              map.setCenter(bounds.getCenter());
+              if (data.rows.length>0){
+                map.fitBounds(bounds);
+                map.setCenter(bounds.getCenter());
+              };
               $('#tbody').html(html);
               console.log("success", data);
             }).fail(function(err) { 
