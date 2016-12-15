@@ -22,8 +22,10 @@
         } else {
           if ("geolocation" in navigator) {
             /* geolocation is available */
+            Materialize.toast("Resolving your location....", 5000);
             navigator.geolocation.getCurrentPosition(function(position) {
               console.log(position.coords.latitude, position.coords.longitude);
+              Materialize.toast("Location Found!", 5000);
               callback(null, { latitude: position.coords.latitude, longitude:  position.coords.longitude});
             });
           } else {
