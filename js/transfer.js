@@ -47,8 +47,7 @@
        };
 
        console.log('transfer single callback', err, data);
-       $('#create_tx').html('Deed transfer started! <a href="https://testnet.etherscan.io/tx/' + data + '">Click here to view trans$
-    
+       $('#create_tx').html('Deed transfer started! <a href="https://testnet.etherscan.io/tx/' + data + '">Click here to view transaction</a>');
 
      });
  
