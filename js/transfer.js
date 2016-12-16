@@ -27,6 +27,7 @@
         } else {
           $('#livecontainer').removeClass('hide');
           landreg = web3.eth.contract(abi).at(addr);
+          owner = web3.eth.accounts[0];
         };
       }
 
@@ -39,8 +40,13 @@
        Materialize.toast('New owner cannot be blank', 4000);
        return false;
      }
+     var deedid = $('#ts_deed_id').val();
+     if (deedid.length == 0) {
+       Materialize.toast('Deed id cannot be blank', 4000);
+       return false;
+     }
 
-     landreg.transferSingle("0x"+deedid, newowner, {from: owner, gas: 3000000}, function(err, data) {
+     landreg.transferSingle(deedid, newowner, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot transfer this deed. It does not belong to you', 4000);
          return false;
