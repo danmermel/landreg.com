@@ -26,6 +26,7 @@
           $('#deadcontainer').removeClass('hide');
         } else {
           $('#livecontainer').removeClass('hide');
+          landreg = web3.eth.contract(abi).at(addr);
         };
       }
 
