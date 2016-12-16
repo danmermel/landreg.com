@@ -70,6 +70,7 @@
        };
 
        console.log('createDeed callback', err, data);
+       $('#create_tx').html('Deed creation started! <a href="https://testnet.etherscan.io/tx/' + data + '">Click here to view transaction on Etherscan</a>');
      });
  
      return false;
