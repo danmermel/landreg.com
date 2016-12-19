@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Landreg - The world's Land Registry Blockchain!</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper green">
+      <a href="#" class="brand-logo">LandReg</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="byowner.html">By Owner</a></li>
+        <li><a href="bydeed.html">By deed</a></li>
+        <li><a href="nearest.html">By Nearest</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<div id="livecontainer" class="container hide">
+
+ <h3>Split into two deeds</h3>
+  <div class="row">
+    <form class="col s12" onsubmit="return split()">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Deed id" id="sp_deed_id" type="text" class="validate">
+          <label for="sp_deed_id">Deed id</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="New Name 1" id="sp_new_name1" type="text" class="validate">
+          <label for="sp_new_name1">New Name 1</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="New URL 1" id="sp_new_url1" type="url" class="validate">
+          <label for="sp_new_url1">New URL 1</label>
+        </div>
+      </div>
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="New Hash 1" id="sp_new_hash1" type="text" class="validate">
+         <label for="sp_new_hash1">New Hash 1</label>
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="New Name 2" id="sp_new_name2" type="text" class="validate">
+         <label for="sp_new_name2">New Name 2</label>
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="New URL 2" id="sp_new_url2" type="url" class="validate">
+         <label for="sp_new_url2">New URL 2</label>
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="New Hash 2" id="sp_new_hash2" type="text" class="validate">
+         <label for="sp_new_hash2">New Hash 2</label>
+       </div>
+     </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="submit" >
+        </div>
+      </div>
+   </form>
+  </div>
+
+
+  <div id="create_tx"> </div>
+</div>
+
+<div id="deadcontainer" class="container hide">
+  <p>To use Landreg you need either:</p>
+  <ul>
+    <li><a href="https://github.com/ethereum/mist">The Mist Browser</a> or </li>
+    <li><a href="https://metamask.io/">The MetaMask plugin for Chrome</a></li>
+ </ul>
+</div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/transfer.js"></script>
+  </body>
+</html>
+
