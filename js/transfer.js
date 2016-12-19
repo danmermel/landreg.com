@@ -22,6 +22,8 @@
    };
 
       var init = function() {
+        var deedid = window.location.search.replace(/^\?/,'');
+        $('#ts_deed_id').val(deedid)
         if (typeof web3 === 'undefined') {
           $('#deadcontainer').removeClass('hide');
         } else {
