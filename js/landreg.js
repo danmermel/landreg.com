@@ -40,6 +40,9 @@
           var statuscode= data.deed.status;
           var status_strings =["provisional","live","dead"];
           $('#deed_status').html(status_strings[statuscode]);
+          if (status_strings[statuscode] == 'live') {
+            $('.deed_action').removeClass('hide');
+          };
           $('#next_deed').html(data.deed.numNextDeeds);
           $('#deed_name').html(data.deed.deed_name);
           data.deed.nextDeeds.forEach (function (nd) {
