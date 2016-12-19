@@ -42,6 +42,10 @@
           $('#deed_status').html(status_strings[statuscode]);
           if (status_strings[statuscode] == 'live') {
             $('.deed_action').removeClass('hide');
+            $('#transfer_link').attr('href','transfer.html?'+deedid);
+            $('#split_link').attr('href','split.html?'+deedid);
+            $('#join_link').attr('href','join.html?'+deedid);
+
           };
           $('#next_deed').html(data.deed.numNextDeeds);
           $('#deed_name').html(data.deed.deed_name);
