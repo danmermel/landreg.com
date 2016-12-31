@@ -28,10 +28,9 @@
           $('a#deedid').attr('href', 'https://testnet.etherscan.io/address/' + deedid);  
           $('#owner').html(data.deed.owner);
           $('a#ownerlink').attr('href', 'byowner.html?' + data.deed.owner);
-          var manifest_url ='http://swarm-gateways.net/bzzr:/' + data.deed.swarm_id +'/';
+          var manifest_url ='http://swarm-gateways.net/bzzr:/' + data.deed.swarm_id.replace(/^0x/,'') +'/';
           $('a#url').attr('href',manifest_url);
           $('#urlval').html(manifest_url);
-          //$('#hash').html(data.deed.claim_hash);
           $('#longitude').html(data.deed.longitude);
           $('#latitude').html(data.deed.latitude);
           $('a#nearbyurl').attr('href','nearest.html?latitude=' + data.deed.latitude + '&longitude=' + data.deed.longitude);
