@@ -42,7 +42,7 @@
      var new_swarmid2 = $('#sp_new_swarmid2').val();
      deedid = $('#sp_deed_id').val();   
 
-     if (new_name1.length ==0 || new_name2.length==0 new_swarmid1.length == 0 || new_swarmid2.length == 0) {
+     if (new_name1.length ==0 || new_name2.length==0 || new_swarmid1.length == 0 || new_swarmid2.length == 0) {
        Materialize.toast('Please ensure all values are entered', 4000);
        return false;
      }
