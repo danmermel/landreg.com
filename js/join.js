@@ -56,7 +56,9 @@
        Materialize.toast('Please ensure all values are entered', 4000);
        return false;
      }
+     console.log(deed1, deed2, swarm_id, new_name);
      swarm_id =  string_to_array(swarm_id);
+     console.log('new swarmid', swarm_id);
      landreg.join(deed1, deed2,  swarm_id, new_name, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot join these deeds. You must own both to do this', 4000);
