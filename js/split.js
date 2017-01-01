@@ -21,6 +21,17 @@
       return str;  
    };
 
+  function string_to_array(str1) {
+    var hex  = str1.toString().replace(/^0x/,'');
+    var arr = '';
+    for (var n = 0; n < hex.length; n += 2) {
+      var decimal = parseInt(hex.substr(n, 2), 16);
+      arr = arr + String.fromCharCode(decimal);
+    }
+    return arr;
+  };
+
+
       var init = function() {
         var deedid = window.location.search.replace(/^\?/,'');
         $('#sp_deed_id').val(deedid)
@@ -51,7 +62,10 @@
        return false;
      }
      console.log(deedid, new_swarmid1, new_swarmid2, new_name1, new_name2);
-     landreg.split(deedid, new_swarmid1, new_swarmid2, new_name1, new_name2, {from: owner, gas: 3000000}, function(err, data) {
+     var swarm1 = string_to_array(new_swarmid1);
+     var swarm2 = string_to_array(new_swarmid2);
+ 
+     landreg.split(deedid, swarm1, swarm2, new_name1, new_name2, {from: owner, gas: 3000000}, function(err, data) {
        if (err){
          Materialize.toast('You cannot split this deed. It does not belong to you', 4000);
          return false;
