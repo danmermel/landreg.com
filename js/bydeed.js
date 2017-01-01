@@ -29,7 +29,7 @@
           $('#owner').html(data.deed.owner);
           $('a#ownerlink').attr('href', 'byowner.html?' + data.deed.owner);
           var manifest_url ='http://swarm-gateways.net/bzz:/' + data.deed.swarm_id.replace(/^0x/,'') +'/';
-          for(var i = 0 ; i<data.deed.manifest.entries.length); i++){
+          for(var i = 0 ; i<data.deed.manifest.entries.length; i++){
             $('#manifest') += .attr('href', manifest_url+data.deed.manifest.entries[i].path);
           };
 
