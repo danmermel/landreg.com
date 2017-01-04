@@ -1,7 +1,7 @@
 
     // address of the contract on testnet
 
-      var addr = '0xe43e0b03407b54c4d3d65d828bd4f61454c70bc6';
+      var addr = '0x0e776256edd65b0b873330fb38207ddf8d28698f';
       var landreg = null;
       var deedid = null;
       var owner = null;
