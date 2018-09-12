@@ -64,7 +64,7 @@
          Materialize.toast('You cannot join these deeds. You must own both to do this', 4000);
          return false;
        };
-       $('#create_tx').html('Deed Join started! <a href="https://testnet.etherscan.io/tx/' + data + '">Click here to view transaction</a>');
+       $('#create_tx').html('Deed Join started! <a href="https://rinkeby.etherscan.io/tx/' + data + '">Click here to view transaction</a>');
        console.log('Join callback', err, data);
      });
  

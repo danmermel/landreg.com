@@ -71,7 +71,7 @@
          return false;
        };
        console.log('Split callback', err, data);
-       $('#create_tx').html('Deed Split started! <a href="https://testnet.etherscan.io/tx/' + data + '">Click here to view transaction</a>');
+       $('#create_tx').html('Deed Split started! <a href="https://rinkeby.etherscan.io/tx/' + data + '">Click here to view transaction</a>');
 
      });
  

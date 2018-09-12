@@ -19,13 +19,13 @@
   }
 
   var render_deed = function (deedid) {
-        var url = 'https://landreg.cloudant.com/deeds/' + deedid.replace(/^0x/,'');
+        var url = 'https://090853a7-dcd2-4a36-a78d-b4deffd7efe4-bluemix.cloudant.com/deeds/' + deedid.replace(/^0x/,'');
         $.ajax({
           url: url,
           json: true
         }).done(function(data) {
           $('#deedidval').html(deedid);
-          $('a#deedid').attr('href', 'https://testnet.etherscan.io/address/' + deedid);  
+          $('a#deedid').attr('href', 'https://rinkeby.etherscan.io/address/' + deedid);  
           $('#owner').html(data.deed.owner);
           $('a#ownerlink').attr('href', 'byowner.html?' + data.deed.owner);
           var manifest_url ='http://swarm-gateways.net/bzz:/' + data.deed.swarm_id.replace(/^0x/,'') +'/';

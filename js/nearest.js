@@ -49,7 +49,7 @@
 
             var query ='latitude:['+lat1+' TO '+ lat2 +'] AND status:1 AND longitude:[' + lon1 + ' TO '+ lon2 +']';
             query = encodeURIComponent(query);
-            var url = 'https://landreg.cloudant.com/deeds/_design/deeds/_search/nearest?q=' + query +'&include_docs=true';
+            var url = 'https://090853a7-dcd2-4a36-a78d-b4deffd7efe4-bluemix.cloudant.com/deeds/_design/deeds/_search/nearest?q=' + query +'&include_docs=true';
             console.log("query is ", url);  
             $.ajax({
               url: url,

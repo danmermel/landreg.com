@@ -12,7 +12,7 @@
          if (!owner) {
            owner = web3.eth.accounts[0];
          }
-         var url = 'https://landreg.cloudant.com/deeds/_design/deeds/_view/byowner?startkey=[%22' + owner + '%22]&endkey=[%22' + owner +  'z%22]&reduce=false&include_docs=true';
+         var url = 'https://090853a7-dcd2-4a36-a78d-b4deffd7efe4-bluemix.cloudant.com/deeds/_design/deeds/_view/byowner?startkey=[%22' + owner + '%22]&endkey=[%22' + owner +  'z%22]&reduce=false&include_docs=true';
          $.ajax({
            url: url,
            json: true
